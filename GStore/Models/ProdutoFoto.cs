@@ -18,7 +18,7 @@ namespace GStore.Models;
     [Display(Name = "Arquivo Foto")]
     [Required(ErrorMessage = "Por favor, informe o arquivo")]
     public string ArquivoFoto { get; set; }
-      [Display(Name = "Descrição")]
-      [StringLength(100, ErrorMessage = "A Descrição deve possuir no máximo 100 caracteres")]
+    [Display(Name = "Descrição")]
+    [StringLength(100, ErrorMessage = "A Descrição deve possuir no máximo 100 caracteres")]
     public string Descricao { get; set; }
 }
