@@ -25,3 +25,5 @@ Criar o Contexto na pasta Data
 Configurar a connectionstring no arquivo appsettings.json
 
 Configurar os serviços de Contexto e Identidade no Program.cs
+
+SHIFT+ALT+F => ALINHA O CÓDIGO
