@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using GStore.Models;
 using GStore.Data;
 using Microsoft.EntityFrameworkCore;
+using GStore.ViewModels;
 
 namespace GStore.Controllers;
 
@@ -31,9 +32,19 @@ public class HomeController : Controller
         Produto produto = _db.Produtos
             .Where(p => p.Id == id)
             .Include(p => p.Categoria)
-            .Include(p => p.Categoria)
+            .Include(p => p.Fotos)
             .SingleOrDefault();
-        return View(produto);
+
+         List<Produto> semelhantes = _db.Produtos
+            .Where(p => p.CategoriaId == produto.CategoriaId && p.Id != id)
+            .Include(p => p.Fotos)
+            .Take(4)
+            .ToList();
+
+        ProdutoVM produtoVM = new(){
+            Produto  = produto
+        };
+        return View(produtoVM);
     }
 
     public IActionResult Privacy()
