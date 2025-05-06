@@ -42,7 +42,8 @@ public class HomeController : Controller
             .ToList();
 
         ProdutoVM produtoVM = new(){
-            Produto  = produto
+            Produto  = produto,
+            Semelhantes = semelhantes
         };
         return View(produtoVM);
     }
