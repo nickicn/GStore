@@ -1,4 +1,4 @@
-
+ 
 using System.ComponentModel.DataAnnotations;
 
 namespace GStore.ViewModels;
@@ -26,4 +26,10 @@ namespace GStore.ViewModels;
         [StringLength(20, MinimumLength = 6, ErrorMessage = "A Senha deve possuir no mínimo 6 e no máximo 20 caracteres ")]
         public string Senha { get; set; }
 
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirmar Senha de Acesso", Prompt = "Confirme sua Senha de Acesso")]
+        [Compare("Senha", ErrorMessage = "As Senhas não Conferem.")]
+        public string ConfirmacaoSenha { get; set; }
+
+        public IFormFile Foto { get; set; }
     }
